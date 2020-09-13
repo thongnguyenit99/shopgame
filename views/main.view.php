@@ -61,6 +61,8 @@
 
         <!-- style CSS -->
         <link rel="stylesheet" type="text/css" href="public/css/style.css" media="all">
+        <link href="public/css/btn_top.css" rel="stylesheet">
+
         <!-- jquery js -->
         <script type="text/javascript" src="public/js/jquery.min.js"></script>
     </head>
@@ -72,14 +74,23 @@
                 <div class="header-top">
                     <div class="container">
                         <div class="row">
-                            <div class="col-lg-4 col-sm-4 hidden-xs">
+                            <div class="col-lg-4 col-md-7 col-sm-4 hidden-xs">
                                 <!-- Default Welcome Message -->
-                                <div class="welcome-msg ">Welcome to MyStore! </div>
-                                <span class="phone hidden-sm">Call me: +84.345.870.893</span>
+                                <div class="row">
+                                    <div class="welcome-msg col-sm-3 col-md-3 col-xs-12"><a href="tel:0345870xxx">0345.870.xxx
+                                        </a>
+                                    </div>
+                                    <div class="phone col-sm-3 col-md-3 col-xs-12"><a
+                                            href="mailto:thongnv@smartosc.com">thongnv@smartosc.com</a>
+                                    </div>
+                                </div>
                             </div>
+                            
+
+
 
                             <!-- top links -->
-                            <div class="headerlinkmenu col-lg-8 col-md-7 col-sm-8 col-xs-12">
+                            <div class="headerlinkmenu col-lg-8 col-md-5 col-sm-8 col-xs-12">
                                 <div class="links">
                                     <div class="myaccount">
                                         <a title="My Account" href="account.php">
@@ -91,7 +102,7 @@
                                     <div class="login">
                                         <a href="account.php">
                                             <i class="fa fa-unlock-alt"></i>
-                                            <span class="hidden-xs">Log In</span>
+                                            <span class="hidden-xs">Đăng Nhập</span>
                                         </a>
                                     </div>
                                 </div>
@@ -143,9 +154,9 @@
                                         <div class="shoppingcart-inner hidden-xs">
                                             <span class="cart-title"> Giỏ hàng của bạn</span>
                                             <span class="cart-total">
-                                                <!--<span id="totalItemCart"><?= $totalItemCart ?>
-                                            </span> -->
-                                                <!-- Item(s)-->
+                                                <span id="totalItemCart"><?= $totalItemCart ?>
+                                            </span> 
+                                                 Item(s)
                                             </span>
                                         </div>
                                     </a>
@@ -165,19 +176,21 @@
 
         <!-- Footer -->
 
-
-        <a href="#" class="totop"> </a>
-        <!-- End Footer -->
+        <div class="text-center" id="footer">
+        <p>@Thiết kế bởi Thông Nguyễn</p>
+         <a id="on_top" class="on_top" href="#top" style="display: block;">
+         <i class="fa-arrow-circle-up fa"></i></a>
         </div>
+        
+        <!-- End Footer -->
+
         <!--  o day thi  minh them modal bootstrap https://getbootstrap.com/docs/4.0/components/modal/ -->
         <div id="messageCart" class="modal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
 
                     <div class="modal-body">
-                        <p id="my_message">
-
-                        </p>
+                        <h6 id="my_message"></h6>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-dismiss="modal">Đóng</button>
@@ -185,11 +198,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- JS -->
-        <script>
-        $('.mega-menu-category').hide()
-        </script>
         <!-- jquery js -->
         <script type="text/javascript" src="public/js/jquery.min.js"></script>
 
@@ -223,33 +231,14 @@
 
         <!-- main js -->
         <script type="text/javascript" src="public/js/main.js"></script>
+        <script type="text/javascript" src="public/js/btn_top.js"></script>
+
 
         <!-- countdown js -->
         <script type="text/javascript" src="public/js/countdown.js"></script>
         ​ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
         </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
-        </script>
-
-        <!-- Revolution Slider -->
-        <script type="text/javascript">
-        jQuery(document).ready(function() {
-            jQuery('.tp-banner').revolution({
-                delay: 9000,
-                startwidth: 1170,
-                startheight: 530,
-                hideThumbs: 10,
-
-                navigationType: "bullet",
-                navigationStyle: "preview1",
-
-                hideArrowsOnMobile: "on",
-
-                touchenabled: "on",
-                onHoverStop: "on",
-                spinner: "spinner4"
-            });
-        });
         </script>
         <script>
         $('.add-to-cart-mt').click(function() {
@@ -274,7 +263,51 @@
                         $('#my_message').html(image)
                         $('#my_message').html(productName +
 
-                            ' đã thêm vào giỏ hàng. <p><a href="gio-hang.html">Xem giỏ hàng</a></p> <img  src="public/products/' +
+                            ' đã thêm vào giỏ hàng. <p><a href="gio-hang.html">Xem giỏ hàng</a></p> <img  src="public/images/products/' +
+                            image + '">'
+                        )
+                        var totalItemCart = $('#totalItemCart')
+                            .text()
+                        $('#totalItemCart').text(parseInt(
+                            totalItemCart) + 1)
+
+                    } else {
+                        // $('#my_message').html(response.message)
+                        $('#my_message').html('Vui lòng thử lại');
+                    }
+                    $('#messageCart').modal('show');
+
+                },
+                error: function(error) {
+                    console.log(error)
+                }
+            })
+        })
+        </script>
+        <script>
+        $('.addCartDetail').click(function() {
+            var id = $(this).attr('data-id')
+            var qty = 1;
+            $.ajax({
+                url: 'cart.php',
+                type: 'POST',
+                data: {
+                    id: id,
+                    qty: qty,
+                    action: 'add'
+                },
+                dataType: 'json',
+                success: function(response) {
+                    // response: obj
+                    console.log(response)
+                    if (response.error == 0) {
+                        var productName = '<b>' + response.data
+                            .product_name + '</b>';
+                        var image = response.data.images;
+                        $('#my_message').html(image)
+                        $('#my_message').html(productName +
+
+                            ' đã thêm vào giỏ hàng. <p><a href="gio-hang.html">Xem giỏ hàng</a></p> <img  src="public/images/products/' +
                             image + '">'
                         )
                         var totalItemCart = $('#totalItemCart')

@@ -7626,3 +7626,19 @@ a{
 .mini-cart a:hover{
 	color: tomato;
 }
+#footer {
+	font-size: 19px;
+	font-family: "Helvetica", Times, serif;
+	background: rgb(17, 182, 233);
+	height: 150px;
+	padding-top: 70px;
+}
+#messageCart {
+	font-size: 15px;
+	font-family: "Helvetica", Times, serif;
+
+}
+.welcome-msg a,.phone a{
+    background:white;
+}
+

@@ -13,8 +13,8 @@ class ProductController extends Controller
     {
         // kieemr tra neu load view ok 
         if (isset($_GET['url']) && $_GET['id']) {
-            $url = $_GET['url']; //iphone-x-64gb-gray
-            $id = $_GET['id']; // 105
+            $url = $_GET['url']; 
+            $id = $_GET['id']; 
             $model = new ProductModel;
             $product = $model->getProductDetail($url, $id); // chi tiêt san pham
 

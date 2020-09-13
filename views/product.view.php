@@ -57,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="btn btn-outline-success ml-2" title="Thêm sản phẩm" type="button"
+                        <button class="btn btn-outline-success ml-2  addCartDetail" title="Thêm sản phẩm" type="button"
                             data-id="<?= $data['product']->id ?>">
 
                             <i class="fa fa-shopping-cart"></i> Thêm sản phẩm
