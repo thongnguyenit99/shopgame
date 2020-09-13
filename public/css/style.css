@@ -7647,3 +7647,6 @@ a{
 .frmlogin label{
 	font-size: 15px;
 }
+.error{
+	color:#FF0000
+}
