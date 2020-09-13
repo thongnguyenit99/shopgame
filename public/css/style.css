@@ -7641,4 +7641,9 @@ a{
 .welcome-msg a,.phone a{
     background:white;
 }
-
+.frmlogin {
+	margin-left: 25%;
+}
+.frmlogin label{
+	font-size: 15px;
+}

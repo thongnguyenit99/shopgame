@@ -100,7 +100,7 @@
                                     </div>
 
                                     <div class="login">
-                                        <a href="account.php">
+                                        <a href="login.php">
                                             <i class="fa fa-unlock-alt"></i>
                                             <span class="hidden-xs">Đăng Nhập</span>
                                         </a>

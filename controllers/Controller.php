@@ -13,8 +13,7 @@ class Controller{
      * 2 là title
      * 3 là dữ liệu
      */
-      function loadView($view = "index",string $title='Home',  $data=[])
-    {
+      function loadView($view = "index",string $title='Home',  $data=[]){
         // tat ca doan code trrongfile master vao dong duoi nay nef  . dau .. la ra khoi thu muc controller, vi the phai ../views - thu muc chua file nay nef
     if(isset($_SESSION['cart'])){
         $oldCart=$_SESSION['cart'];
@@ -33,6 +32,9 @@ class Controller{
     function loadViewAjax($view, $data = [])
     {
         require_once "views/ajax/$view.view.php";
+    }
+    function Login(){
+       return $this->loadView( 'login','Đăng Nhập');
     }
 }
 ?>
