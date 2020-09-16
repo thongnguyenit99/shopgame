@@ -27,6 +27,12 @@ class productModel extends DBConnect{
                 AND p.id = ?";
         return $this->getOneRow($sql, [$url, $id]);
 }
+function checkUser($username){
+          $sql = "SELECT *
+                FROM user 
+                WHERE username = $username";
+        return $this->getOneRow($sql, [$username]); 
+}
 
 }
 

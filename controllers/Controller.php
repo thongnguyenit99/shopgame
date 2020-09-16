@@ -36,5 +36,8 @@ class Controller{
     function Login(){
        return $this->loadView( 'login','Đăng Nhập');
     }
+    function Logout(){
+       return $this->loadView( 'logout','Đăng Xuất');
+    }
 }
 ?>

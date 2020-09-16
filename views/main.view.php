@@ -95,15 +95,29 @@
                                     <div class="myaccount">
                                         <a title="My Account" href="account.php">
                                             <i class="fa fa-user"></i>
-                                            <span class="hidden-xs">My Account</span>
+                                            <span class="hidden-xs">Tài Khoản</span>
                                         </a>
                                     </div>
 
                                     <div class="login">
-                                        <a href="login.php">
-                                            <i class="fa fa-unlock-alt"></i>
-                                            <span class="hidden-xs">Đăng Nhập</span>
-                                        </a>
+                                    <li class="nav-item dropdown mgs-admin ">
+      <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown">
+        <?php  
+        if(isset($_SESSION["f_Username"])){ 
+            echo 'Xin chào, '.$_SESSION['f_Username'] ;
+        echo  '<div class="dropdown-menu"><a class="dropdown-item" href="http://localhost:8000/shopgame/admin/index.php">Vào Admin</a></div> ';
+        } 
+        else  
+ {  
+          echo '<a href="login.php">
+          <i class="fa fa-unlock-alt"></i>
+          <span class="hidden-xs">Đăng Nhập</span>
+         </a> ';
+ }  ?>
+      </a>
+      </li>
+     
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -236,10 +250,9 @@
 
         <!-- countdown js -->
         <script type="text/javascript" src="public/js/countdown.js"></script>
-        ​ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-        </script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js">
-        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
         <script>
         $('.add-to-cart-mt').click(function() {
             var id = $(this).attr('data-id')

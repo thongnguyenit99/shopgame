@@ -30,7 +30,7 @@ class ProductController extends Controller
                 header('Location: error.php');
             }
         } else {
-            // loi thi tro ve trang bao loi
+            // loi thi tro ve trang bao loi 
             header('Location: error.php');
         }
     }

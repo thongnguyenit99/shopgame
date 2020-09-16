@@ -1,0 +1,7 @@
+.msg-admin li{
+float: right;
+margin-left: 25%;
+}
+span.error-add {
+    color: red;
+}

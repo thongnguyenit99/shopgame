@@ -3,21 +3,21 @@
     // thông nguyễn smartosc
 class DBConnect
 {
-    private const dbName = 'shopgame';
+    public const dbName = 'shopgame';
     //private $dsn='mysql:dbname=shopgame;host=127.0.0.1';
-    private $dsn = 'mysql:dbname=' . dbconnect::dbName . '; host=127.0.0.1';
-    private $user = 'root';
-    private $pass = '';
-    private $option = [];
-    private $connect = null;
-     private $stmt = null;
+    public $dsn = 'mysql:dbname=' . dbconnect::dbName . '; host=127.0.0.1';
+    public $user = 'root';
+    public $pass = '';
+    public $option = [];
+    public $connect = null;
+    public $stmt = null;
 
     function __construct()
     {
         try {
             $this->connect = new PDO($this->dsn, $this->user, $this->pass, $this->option);
             $this->connect->exec('set names utf8 ');
-            //echo 'Success';
+            //echo 'Kết nối thành công!';
         } catch (PDOException $e) {
             echo $e->getMessage();
             die(' Conncet fail');

@@ -14,15 +14,22 @@ if (isset($_POST['login'])) {
 		$errMsg = 'Mời bạn nhập tài khoản và mật khẩu ^-^';
     if ($errMsg == ''){
         try{
-            if($username=='admin'&& $password=='admin'){
-                 header('Location:admin.php');
-                 exit();
+           // require_once'models/DBConnect.php';
+             // connect to mysql
+        //$pdoConnect = new PDO("mysql:host=localhost;dbname=shopgame","root","");
+        // set font utf8
+      //  $pdoConnect->exec('set names utf8 ');
+        //    $conn=new ProductModel();
+          //  $conn->checkUser();
+            if($username=="admin" && $password=="admin"){
+                $_SESSION['f_Username'] = 'admin';
+					$_SESSION['f_Password'] = 'admin';
+               echo '<script type="text/javascript">window.location = "admin/index.php" </script>';
             }
             else{
-                header('Location: error.php');
+                echo '<script type="text/javascript">window.location = "login.php" </script>';
             }
         }
-        
         catch (PDOException $e) {
 			$errMsg = $e->getMessage();
 		}
@@ -48,7 +55,7 @@ if (isset($_POST['login'])) {
         </div>
         <div class="form-group">
             <label for="pwd">Mật khẩu <span class="error">*</span></label>
-            <input type="password" class="form-control" id="pwd"
+            <input type="password" class="form-control" id="pwd" name="f_Password"
             value="<?php if (isset($_POST['f_Password'])) echo $_POST['f_Password'] ?>" placeholder=" password" name="f_Password">
             <input type="hidden" class="form-control" name="f_Permission" value='0'>
         </div>

@@ -7,8 +7,8 @@
                 <div class="large-image">
                     <a href="public/images/products/<?= $data['product']->image ?>" class="cloud-zoom" id="zoom1"
                         rel="useWrapper: false, adjustY:0, adjustX:20">
-                        <img class="zoom-img" src="public/images/products/<?= $data['product']->image ?>"
-                            alt="<?= $data['product']->name ?>" style="width:800px" heigh="600px"
+                        <img class="zoom-img" style="width:800px; height=600px" src="public/images/products/<?= $data['product']->image ?>"
+                            alt="<?= $data['product']->name ?>" 
                             title="<?= $data['product']->name ?>">
                     </a>
                 </div>
