@@ -20,7 +20,7 @@
 ## 7.Thêm sản phẩm vào giỏ hàng
 ![Thêm sản phẩm vào giỏ hàng](public/images/pic/addProduct.png)
 ![Thêm sản phẩm vào giỏ hàng](public/images/pic/addproductByDetail.png)
-![Thêm sản phẩm vào giỏ hàng](public/images/pic/addProduct2.png)
+![Thêm sản phẩm vào giỏ hàng](public/images/pic/addproduct2.png)
 ## 6.Hiện số lượng sản phẩm đã mua trên giỏ hàng
 ![Hiện trang giỏ hàng](public/images/pic/shopCart.png)
 ## 6.Hiện trang giỏ hàng
