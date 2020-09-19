@@ -1,7 +1,7 @@
 # shopgame chạy trên PHP version 7.3.3 và port:8000
 
 ### Bài tập này em cho project chạy trên Xampp và viết trên Visual Studio Code
-##### Bài làm có sử dụng kỹ thuật Ajax thuần
+#### Bài làm có sử dụng kỹ thuật Ajax thuần và file .htaccess
 
 ## Một số hình ảnh demo bài tập
 ## 1.Hiện danh sách sản phẩm Game
