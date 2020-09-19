@@ -99,8 +99,8 @@
                                         </a>
                                     </div>
 
-                                    <div class="login">
-                                    <li class="nav-item dropdown mgs-admin ">
+                                    <div class="login nav-item dropdown">
+                                    <div >
       <a class="nav-link dropdown-toggle"  id="navbardrop" data-toggle="dropdown">
         <?php  
         if(isset($_SESSION["f_Username"])){ 
@@ -115,7 +115,7 @@
          </a> ';
  }  ?>
       </a>
-      </li>
+      </div>
      
                                       
                                     </div>

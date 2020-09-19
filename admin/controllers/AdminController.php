@@ -49,11 +49,15 @@ class AdminController extends Controller{
             if (isset($column[6])) {
                $manu = $column[6];
             }
-            $deleted = "";
+             $qty = "";
             if (isset($column[7])) {
-               $deleted = $column[7];
+               $qty = $column[7];
             }
-            $add=$model->insert($url, $name, $detail,$price,$promotion_price, $img, $manu , $deleted);
+            $deleted = "";
+            if (isset($column[8])) {
+               $deleted = $column[8];
+            }
+            $add=$model->insert($url, $name, $detail,$price,$promotion_price, $img, $manu ,$qty, $deleted);
 
             var_dump($add);
 

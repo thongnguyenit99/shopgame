@@ -5,6 +5,7 @@
         const numPrice=$('#numprice').val();
         const manufacture=$('#manufacture').val();
         const img = $('#g_img').val();
+        const qty=$('#quantity').val();
         if (nameGame == "" && contentGame == "" && numPrice=="" && manufacture=="" && img=="") {
             alert("Nội không được rỗng!!Mời bạn nhập lại!");
             return false;
@@ -28,6 +29,18 @@
             else if(numPrice <=0){
             alert("Giá tiền không được nhỏ hơn hoặc bằng 0!!Mời bạn nhập lại!");
             numPrice.focus();
+            return false;
+            }
+        }
+         else if (qty) {
+            if (qty == "") {
+            alert("Số lượng không được rỗng!!Mời bạn nhập lại!");
+           qty .focus();
+            return false;
+            }
+            else if(qty <=0){
+            alert("Số lượng không được nhỏ hơn hoặc bằng 0!!Mời bạn nhập lại!");
+            qty.focus();
             return false;
             }
         }
@@ -98,12 +111,13 @@ if (isset($_POST['insertGame']) ) {
       $nameGame=$_POST['txtname'];
       $content=$_POST['txtContent'];
       $numPrice=$_POST['numPrice'];
+      $qty=$_POST['numQuantity'];
       $manufacture=$_POST['txtManufacture'];
       $img=$_FILES['fileGame']['name'];
 
     // mysql query to insert data
 
-    $pdoQuery = "INSERT INTO products (name,detail,price,image,Manufacturer) VALUES (:txtname,:txtContent,:numPrice,:fileGame,:txtManufacture)";
+    $pdoQuery = "INSERT INTO products (name,detail,price,image,Manufacturer,quantity) VALUES (:txtname,:txtContent,:numPrice,:fileGame,:txtManufacture,:numQuantity)";
 
     $pdoResult = $pdoConnect->prepare($pdoQuery);
 
@@ -112,7 +126,8 @@ if (isset($_POST['insertGame']) ) {
     ":txtContent"=>$content,
     ":numPrice"=>$numPrice,
     ":fileGame" => $img,
-    "txtManufacture"=>$manufacture
+    "txtManufacture"=>$manufacture,
+    ":numQuantity"=>$qty
   ));
         // check if mysql insert query successful
     if($pdoExec)
@@ -145,6 +160,10 @@ if (isset($_POST['insertGame']) ) {
    <div class="form-group">
     <label for="manufacture">Hãng sản xuất <span class="error-add">*</span></label>
     <input type="text" class="form-control" name="txtManufacture" id="manufacture">
+  </div>
+   <div class="form-group">
+    <label for="quantity">Số lượng <span class="error-add">*</span></label>
+    <input type="number" class="form-control" name="numQuantity" id="quantity">
   </div><p>Tải hình ảnh <span class="error-add">*</span></p>
   <div class="input-group mb-5">
   <div class="input-group-prepend">

@@ -9,7 +9,7 @@ class IndexModel extends DBConnect{
         // SD PHÉP KẾT BẰNG giữa bảng Products và pages_url
         $sql = "SELECT p.*, u.url AS url
                 FROM products p INNER JOIN page_url u  ON p.id_url = u.id
-                WHERE deleted=0";
+                WHERE deleted=0 and quantity>0";
     // có 2 cách return nè .
    // return parent::getMoreRow($sql);
    // hoặc sử dụngreturn này
